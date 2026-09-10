@@ -1,159 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official campaign website for Efrem B. Neely, Sr., Democratic nominee for Jefferson County Judge in Jefferson County, Arkansas." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Efrem B. Neely, Sr. | Jefferson County Judge</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #17233c;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: #082b61;
+      color: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #082b61, #174b8d);
+      color: white;
+      padding: 70px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #ffccd0;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 {
+      color: #ffffff;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .slogan {
+      font-size: 27px;
+      font-style: italic;
+      font-weight: bold;
+      color: #ffd8da;
+      margin: 20px 0;
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: 14px;
+      border: 5px solid white;
+      box-shadow: 0 15px 40px rgba(0,0,0,.3);
+    }
+
+    .section {
+      padding: 70px 0;
+    }
+
+    .section.alt {
+      background: #f3f6fa;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      color: #082b61;
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      border-top: 5px solid #c91c2b;
+    }
+
+    .card h3 {
+      color: #082b61;
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .priorities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .priority {
+      background: #082b61;
+      color: white;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .priority-number {
+      color: #ff4451;
+      font-size: 34px;
+      font-weight: 900;
+    }
+
+    .priority h3 {
+      margin: 8px 0;
+      font-size: 22px;
+    }
+
+    .banner {
+      text-align: center;
+      background: #c91c2b;
+      color: white;
+      padding: 50px 20px;
+    }
+
+    .banner h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .banner p {
+      font-size: 21px;
+    }
+
+    footer {
+      background: #061d43;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .paid-for {
+      border: 1px solid rgba(255,255,255,.5);
+      display: inline-block;
+      padding: 10px 18px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .cards,
+      .priorities {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav ul {
+        justify-content: center;
+      }
+
+      .hero {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#home" aria-label="Efrem B. Neely campaign home">
-        <span class="brand-top">EFREM B. NEELY, SR.</span>
-        <span class="brand-bottom">JEFFERSON COUNTY JUDGE</span>
-      </a>
 
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Efrem B. Neely, Sr.</div>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#plan">Our Plan</a>
-        <a href="#about">About</a>
-        <a href="#campaign">Campaign</a>
-      </nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#priorities">Priorities</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <p class="eyebrow">Jefferson County, Arkansas</p>
+
+      <h1>Efrem B. Neely, Sr.</h1>
+
+      <h2>Jefferson County Judge</h2>
+
+      <p class="slogan">“A Servant Leader with a Vision for Progress.”</p>
+
+      <p>
+        Attorney Efrem B. Neely, Sr. brings decades of professional,
+        business, legal, judicial, and community leadership experience
+        to his campaign for Jefferson County Judge.
+      </p>
+
+      <p class="slogan">WE TRUST NEELY</p>
     </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Democratic Nominee for Jefferson County Judge</p>
-          <h1>Efrem B. Neely, Sr.</h1>
-          <p class="slogan">“We Trust Neely”</p>
-          <p class="hero-text">
-            A campaign focused on county infrastructure, responsible budgeting,
-            modern technology, and economic strategy for Jefferson County, Arkansas.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#plan">View Our Plan</a>
-            <a class="btn btn-secondary" href="#campaign">Campaign Information</a>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <img src="neely-campaign.jpg" alt="Efrem B. Neely, Sr. campaign graphic" />
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip">
-      <div class="container trust-inner">
-        <span>★</span>
-        <strong>WE TRUST NEELY</strong>
-        <span>★</span>
-      </div>
-    </section>
-
-    <section class="section plan-section" id="plan">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow dark">Our Plan for Progress</p>
-          <h2>Priorities for Jefferson County</h2>
-          <p>
-            The campaign has identified four areas of focus for county government.
-          </p>
-        </div>
-
-        <div class="priority-grid">
-          <article class="priority-card">
-            <div class="number">1</div>
-            <h3>Roads, Buildings & Bridges</h3>
-            <p>Ensure that our county roads, buildings, and bridges are maintained.</p>
-          </article>
-
-          <article class="priority-card">
-            <div class="number">2</div>
-            <h3>Sound Budgeting</h3>
-            <p>Implement sound budgeting practices for Jefferson County.</p>
-          </article>
-
-          <article class="priority-card">
-            <div class="number">3</div>
-            <h3>County Technology</h3>
-            <p>Update our county technology framework.</p>
-          </article>
-
-          <article class="priority-card">
-            <div class="number">4</div>
-            <h3>Economic Strategy</h3>
-            <p>Create an economic strategy for more jobs, rural housing, and water quality.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
-        <div>
-          <p class="eyebrow">Meet the Candidate</p>
-          <h2>Efrem B. Neely, Sr.</h2>
-          <p class="lead">
-            Efrem B. Neely, Sr. is the Democratic nominee for Jefferson County Judge in Jefferson County, Arkansas.
-          </p>
-          <p>
-            This section is ready for the candidate biography, public service experience,
-            professional background, family information, education, and community involvement.
-          </p>
-        </div>
-        <div class="about-box">
-          <h3>Candidate Bio</h3>
-          <p>
-            Add the full biography here when it is available. Keeping the biography concise
-            will make the page easier to read on both desktop and mobile devices.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section campaign-section" id="campaign">
-      <div class="container campaign-grid">
-        <div>
-          <p class="eyebrow dark">Campaign Information</p>
-          <h2>Jefferson County, Arkansas</h2>
-          <p>
-            Use this section for campaign events, contact information, social media links,
-            volunteer information, and official election details.
-          </p>
-        </div>
-        <div class="info-card">
-          <p class="small-label">Campaign Slogan</p>
-          <p class="big-quote">“We Trust Neely”</p>
-          <p class="small-label">Office Sought</p>
-          <p>Jefferson County Judge</p>
-          <p class="small-label">Party</p>
-          <p>Democratic Party</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>EFREM B. NEELY, SR.</strong>
-        <p>Candidate for Jefferson County Judge</p>
-      </div>
-      <p class="disclaimer">Paid for by the Committee to Elect Efrem B. Neely, Sr., Jefferson County Judge.</p>
+    <div>
+      <img src="neely-campaign.jpg"
+           alt="Efrem B. Neely Sr. campaign">
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Meet Efrem Neely</h2>
+      <p>Education, leadership, service and experience.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Education</h3>
+        <ul>
+          <li>University of Arkansas School of Law, Juris Doctorate</li>
+          <li>University of Arkansas at Pine Bluff, Bachelor of Science in Business Administration</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Business & Management Experience</h3>
+        <ul>
+          <li>More than 31 years of professional experience</li>
+          <li>Corporate leadership and management experience</li>
+          <li>Experienced contract negotiator</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="experience">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Leadership & Experience</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Legal & Judicial Experience</h3>
+        <ul>
+          <li>Practicing attorney since 2008</li>
+          <li>Served as Special Judge for Pulaski County District Court</li>
+          <li>Served as Special Judge for Jefferson County District Court</li>
+          <li>Served as Special Judge for Jefferson County Circuit Court</li>
+          <li>City Attorney for Altheimer, Arkansas</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Appointed Leadership</h3>
+        <ul>
+          <li>
+            Appointed Special County Judge for Jefferson County by the
+            Governor of Arkansas
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Community Involvement</h3>
+        <ul>
+          <li>Pine Bluff / Jefferson County Boys and Girls Club Executive Board Member</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Community Support</h3>
+        <ul>
+          <li>Pine Bluff 1st Ward Food Pantry</li>
+          <li>Pine Bluff Continental Little League Football</li>
+          <li>Gloves Not Guns Boxing Club</li>
+          <li>City of Pine Bluff Summer Youth Employment Program</li>
+          <li>Jefferson County and Pine Bluff Nursing Homes Senior Activities</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="priorities">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Plan for Progress</h2>
+      <p>Campaign priorities for Jefferson County.</p>
+    </div>
+
+    <div class="priorities">
+
+      <div class="priority">
+        <div class="priority-number">01</div>
+        <h3>County Infrastructure</h3>
+        <p>
+          Ensure that county roads, buildings, and bridges are maintained.
+        </p>
+      </div>
+
+      <div class="priority">
+        <div class="priority-number">02</div>
+        <h3>Sound Budgeting</h3>
+        <p>
+          Implement sound budgeting practices and responsible county management.
+        </p>
+      </div>
+
+      <div class="priority">
+        <div class="priority-number">03</div>
+        <h3>Modernize Technology</h3>
+        <p>
+          Update Jefferson County's technology framework.
+        </p>
+      </div>
+
+      <div class="priority">
+        <div class="priority-number">04</div>
+        <h3>Economic Strategy</h3>
+        <p>
+          Develop strategies supporting jobs, rural housing, and water quality.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="banner">
+  <h2>WE TRUST NEELY</h2>
+  <p>A Servant Leader with a Vision for Progress.</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Committee to Elect Efrem B. Neely, Sr.</p>
+
+  <div class="paid-for">
+    PAID FOR BY THE COMMITTEE TO ELECT EFREM B. NEELY, SR.
+    JEFFERSON COUNTY JUDGE
+  </div>
+</footer>
+
 </body>
 </html>
